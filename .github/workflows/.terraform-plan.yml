@@ -3,7 +3,7 @@ name: Terraform Plan (Feature Branch)
 on:
   push:
     branches:
-      - feature/*   # Trigger only on feature branches
+      - feature/*   # Trigger only on feature branch..
   pull_request:
     branches:
       - feature/*
