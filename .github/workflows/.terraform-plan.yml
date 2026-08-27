@@ -1,0 +1,41 @@
+name: Terraform Plan (Feature Branch)
+ 
+on:
+  push:
+    branches:
+      - feature/*   # Trigger only on feature branches
+  pull_request:
+    branches:
+      - feature/*
+ 
+jobs:
+  terraform-plan:
+    runs-on: [self-hosted, Windows, X64]   # tumhare runner ke labels match karne chahiye
+ 
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+ 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+ 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.7
+      - name: Terraform Init
+        run: terraform init
+        working-directory: Environments\Devlopment
+ 
+ 
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: Environments\Devlopment
+ 
+ 
+      - name: Terraform Plan
+        run: terraform plan -var-file="terraform.tfvars"
+        working-directory: Environments\Devlopment
