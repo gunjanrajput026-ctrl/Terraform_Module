@@ -42,9 +42,9 @@ jobs:
           terraform plan -no-color -out=tfplan
           terraform show -no-color tfplan
         working-directory: ./Environments/Devlopment
-        env:
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        # env:
+        #   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        #   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        #   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        #   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
         
