@@ -10,7 +10,7 @@ on:
  
 jobs:
   terraform-plan:
-    runs-on: [self-hosted, Windows, X64]   # tumhare runner ke labels match karne chahiy
+    runs-on: [self-hosted, Windows, X64]   # tumhare runner ke labels match karne chahi
  
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
