@@ -28,14 +28,17 @@ jobs:
           terraform_version: 1.5.7
       - name: Terraform Init
         run: terraform init
+        working-directory: ./Environments/Devlopment
         
  
  
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./Environments/Devlopment
         
  
  
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./Environments/Devlopment
         
