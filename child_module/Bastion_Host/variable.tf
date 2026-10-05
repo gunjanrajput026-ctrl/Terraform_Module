@@ -1,0 +1,1 @@
+variable "azurerm_bastion_host" {}
